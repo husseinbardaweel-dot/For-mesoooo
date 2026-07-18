@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ميس 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* قلوب متحركة في الخلفية */
+        .heart {
+            position: fixed;
+            font-size: 2rem;
+            opacity: 0.7;
+            animation: float 6s ease-in infinite;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+
+        h1 {
+            color: #e91e63;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .poem {
+            color: #333;
+            font-size: 1.2rem;
+            line-height: 2;
+            margin: 30px 0;
+            font-weight: 500;
+        }
+
+        .poem p {
+            margin: 15px 0;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, #e91e63, #764ba2, #e91e63);
+            margin: 40px 0;
+        }
+
+        .english-message {
+            color: #764ba2;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 30px 0;
+            font-style: italic;
+        }
+
+        .english-message p {
+            margin: 15px 0;
+        }
+
+        .highlight {
+            color: #e91e63;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .hearts-decoration {
+            font-size: 2rem;
+            margin: 20px 0;
+            letter-spacing: 10px;
+        }
+
+        footer {
+            color: #999;
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        /* تأثير نبض القلب */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .pulse {
+            animation: pulse 1.5s ease-in-out infinite;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="pulse">💕 ميس 💕</h1>
+
+        <div class="hearts-decoration">❤️ 💕 ❤️ 💕 ❤️</div>
+
+        <div class="poem">
+            <p>يا مَيْسُ، يا بَدْرًا تَأَلَّقَ نُورُهُ</p>
+            <p>فَتَحَيَّرَتْ في وَصْفِهِ الأَشْعَارُ</p>
+            <br>
+            <p>كالجَمَلِ الأَبِيِّ إذا مَضَى مُتَوَقِّدًا</p>
+            <p>تَسْمُو بِهِ العِزَّاتُ وَالأَخْطَارُ</p>
+            <br>
+            <p>صَبْرٌ يَزِينُكِ، وَالوَقَارُ شِعَارُكِ</p>
+            <p>وَالنُّبْلُ مِنْ أَخْلَاقِكِ المِعْطَارُ</p>
+            <br>
+            <p>يا مَيْسُ، إِنَّ الحُسْنَ فِيكِ تَجَمَّعَتْ</p>
+            <p>مَعْنَاهُ، وَاحْتَارَتْ بِهِ الأَفْكَارُ</p>
+            <br>
+            <p>فَلَكَمْ رَأَيْتُ مِنَ الجَمَالِ وَلَمْ أَرَ</p>
+            <p>مِثْلَ الَّذِي فِي وَجْهِكِ المُخْتَارُ</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="english-message">
+            <p><span class="highlight">✨ You are the most beautiful soul I have ever known ✨</span></p>
+            <br>
+            <p>Your beauty isn't just what the eyes can see,<br>
+            It's the warmth of your heart, the kindness in your words,<br>
+            The way you light up every room you walk into.</p>
+            <br>
+            <p>🌟 You are a masterpiece of elegance and grace,<br>
+            A symphony of perfection that enchants everyone around you.<br>
+            Every smile you give is a treasure,<br>
+            Every word you speak is pure gold.</p>
+            <br>
+            <p>💫 In a world full of millions,<br>
+            You are the one that stands out,<br>
+            The brightest star in my sky,<br>
+            The most precious gem in my heart.</p>
+            <br>
+            <p>❤️ Your beauty radiates from within,<br>
+            A gentle strength that captivates the soul,<br>
+            A presence that makes the world feel complete.</p>
+            <br>
+            <p><span class="highlight">✨💕 Mais, you are simply extraordinary 💕✨</span></p>
+        </div>
+
+        <div class="hearts-decoration">❤️ 💕 ❤️ 💕 ❤️</div>
+
+        <footer>
+            <p>💝 مع كل قلب، حب وتقدير 💝</p>
+        </footer>
+    </div>
+
+    <script>
+        // إنشاء قلوب عشوائية تطير من الأسفل
+        function createHearts() {
+            const hearts = ['❤️', '💕', '💖', '💗', '💓', '💞'];
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(heart);
+
+            // حذف القلب بعد انتهاء الرسوم المتحركة
+            setTimeout(() => heart.remove(), 8000);
+        }
+
+        // إنشاء قلوب كل 300 ميلي ثانية
+        setInterval(createHearts, 300);
+
+        // إنشاء بعض القلوب في البداية
+        for (let i = 0; i < 10; i++) {
+            createHearts();
+        }
+    </script>
+</body>
+</html>

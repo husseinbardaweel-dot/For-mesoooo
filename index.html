@@ -13,12 +13,13 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            overflow: hidden;
+            overflow-x: hidden;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
 
         /* قلوب متحركة في الخلفية */
@@ -41,6 +42,84 @@
             }
         }
 
+        /* شاشة الباسوورد */
+        .login-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+
+        .login-container h1 {
+            color: #e91e63;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container p {
+            color: #764ba2;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            border: 2px solid #e91e63;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 10px rgba(233, 30, 99, 0.3);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, #e91e63, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .login-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .login-btn:active {
+            transform: scale(0.95);
+        }
+
+        .error-message {
+            color: #e91e63;
+            margin-top: 15px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .hearts-decoration {
+            font-size: 2rem;
+            margin: 20px 0;
+            letter-spacing: 10px;
+        }
+
+        /* الصفحة الرئيسية */
         .container {
             background: rgba(255, 255, 255, 0.95);
             padding: 60px 40px;
@@ -50,9 +129,10 @@
             text-align: center;
             z-index: 10;
             position: relative;
+            display: none;
         }
 
-        h1 {
+        .container h1 {
             color: #e91e63;
             font-size: 3rem;
             margin-bottom: 30px;
@@ -95,12 +175,6 @@
             font-size: 1.3rem;
         }
 
-        .hearts-decoration {
-            font-size: 2rem;
-            margin: 20px 0;
-            letter-spacing: 10px;
-        }
-
         footer {
             color: #999;
             margin-top: 30px;
@@ -121,10 +195,42 @@
             animation: pulse 1.5s ease-in-out infinite;
             display: inline-block;
         }
+
+        .logout-btn {
+            background: #e91e63;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .logout-btn:hover {
+            background: #764ba2;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- شاشة الباسوورد -->
+    <div class="login-container" id="loginContainer">
+        <h1 class="pulse">💕 ميس 💕</h1>
+        <div class="hearts-decoration">❤️ 💕 ❤️</div>
+        <p>أدخل الباسوورد لفتح الصفحة</p>
+        <input 
+            type="password" 
+            class="password-input" 
+            id="passwordInput" 
+            placeholder="الباسوورد"
+            onkeypress="handleKeyPress(event)"
+        >
+        <button class="login-btn" onclick="checkPassword()">فتح 💕</button>
+        <div class="error-message" id="errorMessage">❌ الباسوورد خاطئ!</div>
+    </div>
+
+    <!-- الصفحة الرئيسية -->
+    <div class="container" id="mainContainer">
         <h1 class="pulse">💕 ميس 💕</h1>
 
         <div class="hearts-decoration">❤️ 💕 ❤️ 💕 ❤️</div>
@@ -176,10 +282,42 @@
 
         <footer>
             <p>💝 مع كل قلب، حب وتقدير 💝</p>
+            <button class="logout-btn" onclick="logout()">تسجيل خروج</button>
         </footer>
     </div>
 
     <script>
+        const correctPassword = "maismycute";
+
+        function checkPassword() {
+            const passwordInput = document.getElementById('passwordInput');
+            const errorMessage = document.getElementById('errorMessage');
+            const loginContainer = document.getElementById('loginContainer');
+            const mainContainer = document.getElementById('mainContainer');
+
+            if (passwordInput.value === correctPassword) {
+                errorMessage.style.display = 'none';
+                loginContainer.style.display = 'none';
+                mainContainer.style.display = 'block';
+                startHearts();
+            } else {
+                errorMessage.style.display = 'block';
+                passwordInput.value = '';
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                checkPassword();
+            }
+        }
+
+        function logout() {
+            document.getElementById('mainContainer').style.display = 'none';
+            document.getElementById('loginContainer').style.display = 'block';
+            document.getElementById('passwordInput').value = '';
+        }
+
         // إنشاء قلوب عشوائية تطير من الأسفل
         function createHearts() {
             const hearts = ['❤️', '💕', '💖', '💗', '💓', '💞'];
@@ -191,16 +329,14 @@
             heart.style.animationDelay = Math.random() * 2 + 's';
             document.body.appendChild(heart);
 
-            // حذف القلب بعد انتهاء الرسوم المتحركة
             setTimeout(() => heart.remove(), 8000);
         }
 
-        // إنشاء قلوب كل 300 ميلي ثانية
-        setInterval(createHearts, 300);
-
-        // إنشاء بعض القلوب في البداية
-        for (let i = 0; i < 10; i++) {
-            createHearts();
+        function startHearts() {
+            setInterval(createHearts, 300);
+            for (let i = 0; i < 10; i++) {
+                createHearts();
+            }
         }
     </script>
 </body>
